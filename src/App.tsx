@@ -1,7 +1,8 @@
 import './App.css'
-import { FormRow } from '@/components'
+import { FormRow, Spinner } from '@/components'
 import { useApp } from '@/hooks/useApp'
 import { DEFAULT_USER, NEXT_INDEX_OFFSET } from '@/constants'
+import { FormHead } from './components/FormHead'
 
 function App() {
   const {
@@ -19,23 +20,10 @@ function App() {
   return (
     <>
       {isLoading ? (
-        <div className="flex justify-center items-center h-screen">
-          <div className="w-12 h-12 border-4 border-t-4 border-gray-300 border-t-[#0C9A00] rounded-full animate-spin"></div>
-        </div>
+        <Spinner />
       ) : (
         <div className="w-[480px] mx-auto">
-          <div className="flex justify-between items-center mt-[47px] mb-[25px]">
-            <div className="font-inter font-bold text-[24px] leading-[29px] text-black">
-              Users
-            </div>
-            <button
-              onClick={() => append(DEFAULT_USER)}
-              type="button"
-              className="font-inter font-bold text-[16px] leading-[19px] underline text-[#00B93F]"
-            >
-              Add New
-            </button>
-          </div>
+          <FormHead append={append} />
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="w-full bg-white border border-[#E8E8E8] rounded-[10px] mb-[16px] p-4">
               {fields.map(({ id, name, email }, index) => (
