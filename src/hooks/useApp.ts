@@ -7,7 +7,7 @@ import useSWRMutation from 'swr/mutation'
 
 export const useApp = () => {
   const { control, handleSubmit, watch } = useForm<{ users: UsersProps[] }>()
-  const { fields, insert, remove, replace } = useFieldArray({
+  const { fields, insert, remove, replace, append } = useFieldArray({
     control,
     name: 'users',
   })
@@ -43,5 +43,6 @@ export const useApp = () => {
     handleSubmit,
     isAnyFieldEmpty,
     control,
+    append,
   }
 }

@@ -13,6 +13,7 @@ function App() {
     handleSubmit,
     isAnyFieldEmpty,
     control,
+    append,
   } = useApp()
 
   return (
@@ -27,7 +28,11 @@ function App() {
             <div className="font-inter font-bold text-[24px] leading-[29px] text-black">
               Users
             </div>
-            <button className="font-inter font-bold text-[16px] leading-[19px] underline text-[#00B93F]">
+            <button
+              onClick={() => append(DEFAULT_USER)}
+              type="button"
+              className="font-inter font-bold text-[16px] leading-[19px] underline text-[#00B93F]"
+            >
               Add New
             </button>
           </div>
